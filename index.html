@@ -309,26 +309,50 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 .editorial .cta-band{margin-top:28px}.editorial .highlight{padding:34px}
 .mitra-photo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:24px}.mitra-photo{border-radius:18px;overflow:hidden;aspect-ratio:1.15}.mitra-photo img{width:100%;height:100%;object-fit:cover;display:block}
 @media(max-width:760px){.editorial{padding:54px 0}.editorial .grid-3,.editorial .grid-2{grid-template-columns:1fr}.mitra-photo-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* Navigation du site Mitra Groupe */
+.topbar .header-shell{display:block;height:auto}
+.header-main{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:86px}
+.logo{flex:none;letter-spacing:normal}.logo img{width:148px;height:85px;object-fit:contain}
+.site-menu{border-top:1px solid var(--line)}
+.menu-toggle{display:none}
+.nav{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.9vw,28px);min-height:50px}
+.nav>a,.nav>.nav-pending,.nav-group>summary{font-size:.81rem;font-weight:800;color:var(--blue-deep);white-space:nowrap;text-decoration:none}
+.nav-group{position:relative}
+.nav-group>summary{cursor:pointer;list-style:none;padding:14px 0}
+.nav-group>summary::-webkit-details-marker{display:none}
+.nav-group>summary::after{content:'⌄';margin-left:5px;color:var(--red)}
+.nav-group[open]>summary,.nav-group>summary:hover{color:var(--red)}
+.nav-panel{position:absolute;z-index:70;top:100%;left:0;min-width:240px;max-width:300px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+.nav-panel a,.nav-panel .nav-pending{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:8px;font-size:.86rem;text-decoration:none;line-height:1.35}
+.nav-panel a:hover{background:var(--sky);color:var(--red)}
+.nav-pending{color:#65768a!important;cursor:default}.nav-pending small{color:#8a98a8;font-weight:600;font-size:.69rem;white-space:nowrap}
+.nav>.nav-pending:hover{color:#65768a}
+@media(max-width:1000px){
+ .menu-toggle{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:10px 0;width:100%;border:0;background:transparent;font:inherit;font-weight:800;color:var(--blue-deep)}
+ .site-menu .nav{display:none}
+ .site-menu.is-open .nav{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0 0 18px;max-height:65vh;overflow:auto}
+ .nav>.nav-pending,.nav-group>summary{display:block;padding:10px 0}
+ .nav-panel{position:static;box-shadow:none;max-width:none;min-width:0;border:0;border-left:2px solid var(--line);border-radius:0;margin:0 0 8px 8px}
+ .header-main{min-height:72px}.logo img{width:125px;height:72px}
+}
+@media(max-width:680px){.top-phone{display:none}.topbar .btn{padding:8px 14px;font-size:.82rem}}
 </style></head>
 
 <body>
 
 <!-- ============ EN-TÊTE ============ -->
 <header class="topbar">
-  <div class="wrap">
-    <a class="logo" href="/"><span class="logo-mark">M</span>MITRA GROUPE</a>
-    <nav class="nav" aria-label="Navigation de la page">
-      <a href="#garanties">Garanties</a>
-      <a href="#profils">Votre profil</a>
-      <a href="#pourquoi">Pourquoi MITRA</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="top-cta">
-      <a class="top-phone" href="tel:+33186617562">
-        <svg width="20" height="20" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>
-        <span><small>Appel gratuit, conseiller dédié</small>01 86 61 75 62</span>
-      </a>
-      <a class="btn btn-primary" href="#devis">Mon devis</a>
+  <div class="wrap header-shell">
+    <div class="header-main">
+      <a class="logo" href="./" aria-label="MITRA GROUPE — page mutuelle santé particulier"><img src="mitra-logo.png" alt="MITRA GROUPE — Une alliance pour un monde meilleur" width="2048" height="1180"></a>
+      <div class="top-cta">
+        <a class="top-phone" href="tel:+33186617562"><span><small>Parler à un conseiller</small>01 86 61 75 62</span></a>
+        <a class="btn btn-primary" href="#devis">Mon devis</a>
+      </div>
+    </div>
+    <div class="site-menu"><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mitra-nav">Menu <span aria-hidden="true">☰</span></button>
+      <nav class="nav" id="mitra-nav" aria-label="Navigation principale"><span class="nav-pending" aria-disabled="true" title="Page à venir">Accueil<small>À venir</small></span><details class="nav-group"><summary>Mutuelle santé</summary><div class="nav-panel"><a href="./" aria-current="page">Mutuelle santé particulier</a><span class="nav-pending" aria-disabled="true" title="Page à venir">Mutuelle senior<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Mutuelle famille<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Mutuelle indépendant / TNS<small>À venir</small></span></div></details><details class="nav-group"><summary>Assurance emprunteur</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance prêt immobilier<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Changer d’assurance emprunteur<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Loi Lemoine<small>À venir</small></span></div></details><details class="nav-group"><summary>Assurance animaux</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance chien<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance chat<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance santé animale<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Responsabilité civile chien<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance décès animal<small>À venir</small></span></div></details><details class="nav-group"><summary>Habitation</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance locataire<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance propriétaire<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance copropriétaire<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance habitation étudiant<small>À venir</small></span></div></details><details class="nav-group"><summary>Prévoyance</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Capital décès<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Garantie obsèques<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance dépendance<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Indemnités journalières<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Protection juridique<small>À venir</small></span></div></details><details class="nav-group"><summary>MITRA GROUPE</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Pourquoi Mitra Groupe ?<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Qui sommes-nous ?<small>À venir</small></span></div></details><span class="nav-pending" aria-disabled="true" title="Page à venir">Guide de l’assurance<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Contact<small>À venir</small></span></nav>
     </div>
   </div>
 </header>
@@ -1134,6 +1158,8 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 
 <script>
 (function(){
+  var menuButton=document.querySelector('.menu-toggle');
+  menuButton.addEventListener('click',function(){var open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));document.querySelector('.site-menu').classList.toggle('is-open',open);});
   var profil = document.getElementById('profil');
   // Choix rapide dans le hero -> pré-remplit le formulaire
   document.querySelectorAll('.who button').forEach(function(b){
