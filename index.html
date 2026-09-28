@@ -316,17 +316,18 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 .logo{flex:none;letter-spacing:normal}.logo img{width:148px;height:85px;object-fit:contain}
 .site-menu{border-top:1px solid var(--line)}
 .menu-toggle{display:none}
-.nav{display:flex;align-items:center;justify-content:center;gap:clamp(12px,1.9vw,28px);min-height:50px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
 .nav>a,.nav>.nav-pending,.nav-group>summary{font-size:.81rem;font-weight:800;color:var(--blue-deep);white-space:nowrap;text-decoration:none}
 .nav-group{position:relative}
-.nav-group>summary{cursor:pointer;list-style:none;padding:14px 0}
+.nav-group>summary{cursor:pointer;list-style:none;padding:14px 0;position:static}
 .nav-group>summary::-webkit-details-marker{display:none}
-.nav-group>summary::after{content:'⌄';margin-left:5px;color:var(--red)}
+.nav-group>summary::after,.nav-group[open]>summary::after{content:'⌄';position:static;display:inline;width:auto;height:auto;margin-left:5px;border-radius:0;background:none;color:var(--red);font-size:1rem;transform:none}
 .nav-group[open]>summary,.nav-group>summary:hover{color:var(--red)}
 .nav-panel{position:absolute;z-index:70;top:100%;left:0;min-width:240px;max-width:300px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
 .nav-panel a,.nav-panel .nav-pending{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 12px;border-radius:8px;font-size:.86rem;text-decoration:none;line-height:1.35}
 .nav-panel a:hover{background:var(--sky);color:var(--red)}
 .nav-pending{color:#65768a!important;cursor:default}.nav-pending small{color:#8a98a8;font-weight:600;font-size:.69rem;white-space:nowrap}
+.nav>.nav-pending small{display:none}
 .nav>.nav-pending:hover{color:#65768a}
 @media(max-width:1000px){
  .menu-toggle{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:10px 0;width:100%;border:0;background:transparent;font:inherit;font-weight:800;color:var(--blue-deep)}
