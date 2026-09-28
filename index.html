@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Mutuelle Santé Particulier : Devis &amp; Garanties | MITRA</title>
 <meta name="description" content="Trouvez une mutuelle santé particulier adaptée à vos besoins et à votre budget. Hospitalisation, optique, dentaire, soins courants. Demandez votre devis MITRA.">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="noindex,nofollow">
 <link rel="canonical" href="https://mitragroupe.fr/mutuelle-sante-particulier/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -361,6 +361,7 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
       <div class="progress" aria-hidden="true"><span id="bar"></span></div>
 
       <form action="#" method="post" id="devis-form" novalidate>
+        <p class="legal" role="note">Aperçu du site : le formulaire ne transmet aucune demande. Ne saisissez pas de données personnelles.</p>
         <fieldset class="fs active" id="s1">
           <legend>1. Votre besoin</legend>
           <div class="field" style="margin-bottom:18px">
@@ -1171,7 +1172,9 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
     s2.classList.remove('active'); s1.classList.add('active'); bar.style.width='50%';
   });
   document.getElementById('devis-form').addEventListener('submit', function(e){
-    if(!this.checkValidity()){ e.preventDefault(); this.reportValidity(); }
+    e.preventDefault();
+    if(!this.checkValidity()){ this.reportValidity(); return; }
+    alert('Ceci est un aperçu. Le formulaire sera activé lors de la mise en ligne définitive.');
   });
 })();
 </script>
