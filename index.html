@@ -312,7 +312,7 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 
 /* Navigation du site Mitra Groupe */
 .topbar .header-shell{display:block;height:auto}
-.header-main{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:86px}
+.header-main{display:flex;align-items:center;justify-content:center;min-height:94px;position:relative}
 .logo{flex:none;letter-spacing:normal}.logo img{width:148px;height:85px;object-fit:contain}
 .site-menu{border-top:1px solid var(--line)}
 .menu-toggle{display:none}
@@ -329,15 +329,22 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 .nav-pending{color:#65768a!important;cursor:default}.nav-pending small{color:#8a98a8;font-weight:600;font-size:.69rem;white-space:nowrap}
 .nav>.nav-pending small{display:none}
 .nav>.nav-pending:hover{color:#65768a}
-@media(max-width:1000px){
- .menu-toggle{display:flex;justify-content:space-between;align-items:center;cursor:pointer;padding:10px 0;width:100%;border:0;background:transparent;font:inherit;font-weight:800;color:var(--blue-deep)}
+@media(max-width:1200px){
+ .topbar .header-shell{position:relative}
+ .header-main{min-height:78px}.logo img{width:130px;height:74px}
+ .site-menu{border:0}
+ .menu-toggle{display:flex;align-items:center;justify-content:center;position:absolute;right:0;top:50%;transform:translateY(-50%);width:44px;height:44px;padding:0;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--blue-deep);cursor:pointer;box-shadow:0 3px 12px rgba(18,49,79,.06)}
+ .menu-toggle svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;transition:transform .2s}
+ .menu-toggle[aria-expanded="true"] svg{transform:rotate(90deg)}
  .site-menu .nav{display:none}
- .site-menu.is-open .nav{display:flex;flex-direction:column;align-items:stretch;gap:0;padding:0 0 18px;max-height:65vh;overflow:auto}
- .nav>.nav-pending,.nav-group>summary{display:block;padding:10px 0}
- .nav-panel{position:static;box-shadow:none;max-width:none;min-width:0;border:0;border-left:2px solid var(--line);border-radius:0;margin:0 0 8px 8px}
- .header-main{min-height:72px}.logo img{width:125px;height:72px}
+ .site-menu.is-open .nav{display:flex;flex-direction:column;align-items:stretch;gap:0;position:absolute;top:100%;left:0;right:0;padding:10px 20px 18px;max-height:calc(100dvh - 90px);overflow:auto;background:#fff;border:1px solid var(--line);border-radius:0 0 18px 18px;box-shadow:0 20px 30px rgba(18,49,79,.12)}
+ .nav>.nav-pending,.nav-group>summary{display:block;padding:13px 4px;border-bottom:1px solid var(--line);font-size:.95rem}
+ .nav>.nav-pending small{display:inline;margin-left:10px}
+ .nav-group>summary::after,.nav-group[open]>summary::after{float:right;margin-right:4px}
+ .nav-panel{position:static;box-shadow:none;max-width:none;min-width:0;border:0;border-left:2px solid var(--line);border-radius:0;margin:0 0 8px 8px;padding:5px 0 5px 10px}
 }
-@media(max-width:680px){.top-phone{display:none}.topbar .btn{padding:8px 14px;font-size:.82rem}}
+@media(max-width:680px){.header-main{min-height:72px}.logo img{width:120px;height:68px}.site-menu.is-open .nav{left:-4vw;right:-4vw;padding-left:6vw;padding-right:6vw}}
+@media(max-width:680px){.mobile-cta{display:none}body{padding-bottom:0}}
 </style></head>
 
 <body>
@@ -347,12 +354,8 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
   <div class="wrap header-shell">
     <div class="header-main">
       <a class="logo" href="./" aria-label="MITRA GROUPE — page mutuelle santé particulier"><img src="mitra-logo.png" alt="MITRA GROUPE — Une alliance pour un monde meilleur" width="2048" height="1180"></a>
-      <div class="top-cta">
-        <a class="top-phone" href="tel:+33186617562"><span><small>Parler à un conseiller</small>01 86 61 75 62</span></a>
-        <a class="btn btn-primary" href="#devis">Mon devis</a>
-      </div>
     </div>
-    <div class="site-menu"><button type="button" class="menu-toggle" aria-expanded="false" aria-controls="mitra-nav">Menu <span aria-hidden="true">☰</span></button>
+    <div class="site-menu"><button type="button" class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mitra-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <nav class="nav" id="mitra-nav" aria-label="Navigation principale"><span class="nav-pending" aria-disabled="true" title="Page à venir">Accueil<small>À venir</small></span><details class="nav-group"><summary>Mutuelle santé</summary><div class="nav-panel"><a href="./" aria-current="page">Mutuelle santé particulier</a><span class="nav-pending" aria-disabled="true" title="Page à venir">Mutuelle senior<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Mutuelle famille<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Mutuelle indépendant / TNS<small>À venir</small></span></div></details><details class="nav-group"><summary>Assurance emprunteur</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance prêt immobilier<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Changer d’assurance emprunteur<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Loi Lemoine<small>À venir</small></span></div></details><details class="nav-group"><summary>Assurance animaux</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance chien<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance chat<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance santé animale<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Responsabilité civile chien<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance décès animal<small>À venir</small></span></div></details><details class="nav-group"><summary>Habitation</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance locataire<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance propriétaire<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance copropriétaire<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance habitation étudiant<small>À venir</small></span></div></details><details class="nav-group"><summary>Prévoyance</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Capital décès<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Garantie obsèques<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Assurance dépendance<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Indemnités journalières<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Protection juridique<small>À venir</small></span></div></details><details class="nav-group"><summary>MITRA GROUPE</summary><div class="nav-panel"><span class="nav-pending" aria-disabled="true" title="Page à venir">Pourquoi Mitra Groupe ?<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Qui sommes-nous ?<small>À venir</small></span></div></details><span class="nav-pending" aria-disabled="true" title="Page à venir">Guide de l’assurance<small>À venir</small></span><span class="nav-pending" aria-disabled="true" title="Page à venir">Contact<small>À venir</small></span></nav>
     </div>
   </div>
@@ -1152,15 +1155,10 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
   </div>
 </footer>
 
-<div class="mobile-cta">
-  <a class="btn btn-ghost" href="tel:+33186617562">Appeler</a>
-  <a class="btn btn-primary" href="#devis">Mon devis gratuit</a>
-</div>
-
 <script>
 (function(){
   var menuButton=document.querySelector('.menu-toggle');
-  menuButton.addEventListener('click',function(){var open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));document.querySelector('.site-menu').classList.toggle('is-open',open);});
+  menuButton.addEventListener('click',function(){var open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');document.querySelector('.site-menu').classList.toggle('is-open',open);});
   var profil = document.getElementById('profil');
   // Choix rapide dans le hero -> pré-remplit le formulaire
   document.querySelectorAll('.who button').forEach(function(b){
