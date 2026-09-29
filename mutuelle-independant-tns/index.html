@@ -361,7 +361,7 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 <main>
 <section class="hero"><div class="wrap hero-grid"><div>
   <div class="pill"><b>Mutuelle indépendant / TNS</b> Étude personnalisée par un courtier</div>
-  <h1>Mutuelle indépendant et TNS : une santé bien couverte, à votre rythme</h1>
+  <h1>Mutuelle indépendant et TNS : une couverture santé à votre mesure</h1>
   <p class="lead">Artisan, commerçant, professionnel libéral ou micro-entrepreneur : choisissez une complémentaire santé adaptée à vos soins, à votre famille et à votre budget. MITRA GROUPE vous aide à lire les garanties et à comparer les solutions de ses partenaires.</p>
   <div class="reassure"><span>✓ Garanties selon votre activité</span><span>✓ Étude sans engagement</span><span>✓ Courtier ORIAS n° 22005833</span></div>
 </div>
@@ -451,7 +451,7 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
   var menuButton=document.querySelector('.menu-toggle');
   menuButton.addEventListener('click',function(){var open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');document.querySelector('.site-menu').classList.toggle('is-open',open);});
   var s1=document.getElementById('s1'),s2=document.getElementById('s2'),bar=document.getElementById('bar');
-  document.getElementById('next').addEventListener('click',function(){s1.classList.remove('active');s2.classList.add('active');bar.style.width='100%';document.getElementById('prenom').focus();});
+  document.getElementById('next').addEventListener('click',function(){var profil=document.getElementById('profil');if(!profil.value){profil.reportValidity();return;}s1.classList.remove('active');s2.classList.add('active');bar.style.width='100%';document.getElementById('prenom').focus();});
   document.getElementById('prev').addEventListener('click',function(){s2.classList.remove('active');s1.classList.add('active');bar.style.width='50%';});
   document.getElementById('devis-form').addEventListener('submit',function(e){e.preventDefault();if(!this.checkValidity()){this.reportValidity();return;}alert('Ceci est un aperçu. Le formulaire sera activé lors de la mise en ligne définitive.');});
 })();
