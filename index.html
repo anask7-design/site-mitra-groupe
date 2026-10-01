@@ -276,6 +276,18 @@ html{scroll-behavior:smooth;scroll-padding-top:150px}.home-hero{position:relativ
 @media(max-width:980px){.home-hero{padding:45px 0}.home-hero .hero-grid{gap:35px}.home-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-about,.home-guide{gap:35px}.home-orbit{left:-200px}.nav>a{display:block;padding:13px 4px}}
 @media(max-width:680px){.home-hero h1{font-size:2.8rem}.home-hero .hero-grid{grid-template-columns:1fr}.home-hero .lead{font-size:1rem}.home-card-grid,.home-about,.home-guide{grid-template-columns:1fr}.home-service{padding:24px}.home-dark{padding:55px 0}.home-note small{max-width:230px}.home-glossary{padding:10px}.home-aura{filter:blur(25px);width:360px;height:360px}.home-hero .form-card{padding:24px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.home-aura,.home-explore span{animation:none}.reveal-ready{opacity:1;transform:none;transition:none}.home-service{transition:none}}
+
+.interactive-hero{position:relative;isolation:isolate;width:100%;height:calc(100dvh - 142px);min-height:490px;overflow:hidden;color:#fff;background:#315b85;padding:0}
+.interactive-scene,.interactive-scene img,.interactive-scene canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.interactive-scene{z-index:-1;background:#315b85}.interactive-scene img{object-fit:cover;object-position:center;user-select:none;pointer-events:none}.interactive-scene canvas{pointer-events:none}
+.interactive-copy{position:absolute;left:4vw;top:7%;max-width:650px;pointer-events:none}.interactive-copy a{pointer-events:auto}
+.interactive-hero h1{color:#fff;font-size:clamp(30px,3.8vw,64px);line-height:.98;letter-spacing:-.035em;margin:0;max-width:650px;text-shadow:0 2px 16px #17395825}
+.interactive-eyebrow{display:inline-flex;align-items:center;gap:8px;border:1px solid #ffffffa6;border-radius:99px;padding:8px 13px;margin:0 0 17px;font-size:11px;letter-spacing:.11em;font-weight:800;color:white}.interactive-eyebrow:before{content:'';width:9px;height:9px;background:white;border-radius:50%}
+.interactive-intro{font-size:clamp(14px,1.2vw,20px);line-height:1.5;margin:16px 0 20px;color:white}.interactive-button{display:inline-flex;align-items:center;justify-content:center;min-height:43px;padding:0 25px;border:1px solid white;border-radius:99px;background:white;color:#1f4c75;font-weight:700;font-size:13px;text-decoration:none;transition:transform .25s ease,background .25s ease}.interactive-button:hover{color:#d52d17;background:#f3f6fb;transform:translateY(-2px)}.interactive-button:focus-visible{outline:3px solid #12314f;outline-offset:4px}.interactive-hint{font-size:11px;opacity:.85;margin-top:16px;color:white}.touch-hint{display:none}.home-project .project-heading{font-size:clamp(2.3rem,4vw,4rem);line-height:1.08;letter-spacing:-.04em;margin:0 0 24px}
+@media(max-width:1100px){.interactive-hero{height:calc(100dvh - 81px)}}
+@media(max-width:700px){.interactive-hero{min-height:580px}.interactive-copy{top:5%;left:6vw;right:6vw}.interactive-hero h1{font-size:38px}.interactive-scene img{object-fit:contain}.interactive-eyebrow{font-size:9px}.interactive-intro{font-size:14px}.interactive-hint{font-size:10px}}
+@media(hover:none){.desktop-hint{display:none}.touch-hint{display:inline}}
+@media(prefers-reduced-motion:reduce){.interactive-hint{display:none}.interactive-button{transition:none}.interactive-scene canvas{display:none}}
 </style>
 
 <!-- Données structurées : Organisation + Service + FAQ (à garder synchronisées avec les mentions légales) -->
@@ -363,9 +375,16 @@ html{scroll-behavior:smooth;scroll-padding-top:150px}.home-hero{position:relativ
 </header>
 
 <main>
-<section class="hero home-hero"><div class="home-aura aura-one" aria-hidden="true"></div><div class="home-aura aura-two" aria-hidden="true"></div><div class="home-orbit" aria-hidden="true"></div><div class="wrap hero-grid"><div>
+<section class="interactive-hero" id="interactive-hero" aria-label="Déplacez le curseur pour découvrir la protection Mitra">
+  <div class="interactive-scene" aria-hidden="true">
+    <img id="interactive-base" alt="" src="hero-scene-blue.webp">
+    <canvas id="interactive-canvas"></canvas>
+  </div>
+  
+  <div class="interactive-copy"><p class="interactive-eyebrow">MITRA GROUPE · À VOS CÔTÉS</p><h1>Protéger ce qui<br>compte vraiment.</h1><p class="interactive-intro">Vos proches, vos projets, vos compagnons.<br>Avançons ensemble, en toute confiance.</p><a class="interactive-button" href="#devis">Parler à un conseiller ↗</a><p class="interactive-hint"><span class="desktop-hint">Déplacez votre souris pour découvrir la différence.</span><span class="touch-hint">Touchez l’image pour découvrir la différence.</span></p></div></section>
+<section class="hero home-hero home-project"><div class="home-aura aura-one" aria-hidden="true"></div><div class="home-aura aura-two" aria-hidden="true"></div><div class="home-orbit" aria-hidden="true"></div><div class="wrap hero-grid"><div>
   <div class="pill"><b>MITRA GROUPE</b> Votre projet, notre attention</div>
-  <h1>La vie avance.<br><span class="home-gradient">Votre protection aussi.</span></h1>
+  <h2 class="project-heading">Votre projet commence ici.</h2>
   <p class="lead">Santé, logement, famille, projets : choisissez une assurance qui suit votre quotidien. MITRA GROUPE vous accompagne pour comprendre et comparer les offres de ses partenaires.</p>
   <div class="reassure"><span>✓ Votre projet au centre</span><span>✓ Des garanties expliquées</span><span>✓ Courtier ORIAS n° 22005833</span></div><div class="home-note"><span class="home-note-icon" aria-hidden="true">✦</span><span><b>Un choix éclairé commence ici.</b><small>Vos besoins. Des garanties expliquées. Votre décision.</small></span></div><a class="home-explore" href="#solutions">Explorer nos assurances <span aria-hidden="true">↓</span></a>
 </div><div class="form-card" id="devis">
@@ -412,4 +431,108 @@ html{scroll-behavior:smooth;scroll-padding-top:150px}.home-hero{position:relativ
 </script>
 <script>
 (function(){if(window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;var observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}});},{threshold:.08});document.querySelectorAll('.home-service,.home-about>div,.home-guide>div,.home-last').forEach(function(el){el.classList.add('reveal-ready');observer.observe(el);});})();
+</script><script>
+(() => {
+  'use strict';
+  const hero = document.getElementById('interactive-hero');
+  const top = document.getElementById('interactive-canvas');
+  const ctx = top.getContext('2d', {alpha:true});
+  const mask = document.createElement('canvas');
+  const mc = mask.getContext('2d', {alpha:true});
+  const clean = new Image();
+  clean.src = 'hero-scene-red.webp';
+  const stamps = [];
+  const life = 2700;
+  let w=0,h=0,radius=0,tx=0,ty=0,sx=0,sy=0,lastX=0,lastY=0;
+  let active=false, previous=0, lastStampX=0,lastStampY=0, hasStamp=false;
+
+  function resize(){
+    const rect=hero.getBoundingClientRect();
+    w=Math.max(1,Math.round(rect.width)); h=Math.max(1,Math.round(rect.height));
+    top.width=mask.width=w; top.height=mask.height=h;
+    radius=.19*Math.min(w,h);
+    if(!active){sx=tx=w*.21;sy=ty=h*.48;}
+    hasStamp=false;
+  }
+  function cover(g,img){
+    const scale=(w<700?Math.min:Math.max)(w/img.naturalWidth,h/img.naturalHeight);
+    if(w<700){g.fillStyle="#ff3010";g.fillRect(0,0,w,h);}
+    const dw=img.naturalWidth*scale, dh=img.naturalHeight*scale;
+    g.drawImage(img,(w-dw)/2,(h-dh)/2,dw,dh);
+  }
+  // Closed centripetal-looking Catmull-Rom converted to cubic Bézier segments.
+  function blob(g,x,y,r,t){
+    const n=48, pts=[];
+    for(let i=0;i<n;i++){
+      const a=i*2*Math.PI/n;
+      const rr=r*(1+.085*Math.sin(3*a+t)+.048*Math.sin(5*a-1.15*t)+.022*Math.sin(9*a+.6*t));
+      pts.push({x:x+rr*Math.cos(a),y:y+rr*Math.sin(a)});
+    }
+    g.moveTo(pts[0].x,pts[0].y);
+    for(let i=0;i<n;i++){
+      const p0=pts[(i+n-1)%n],p1=pts[i],p2=pts[(i+1)%n],p3=pts[(i+2)%n];
+      g.bezierCurveTo(p1.x+(p2.x-p0.x)/6,p1.y+(p2.y-p0.y)/6,
+                      p2.x-(p3.x-p1.x)/6,p2.y-(p3.y-p1.y)/6,p2.x,p2.y);
+    }
+    g.closePath();
+  }
+  function emit(x,y,now){stamps.push({x,y,born:now,phase:now*.001});}
+  function trail(x0,y0,x1,y1,now){
+    const step=Math.max(1,radius*.09);
+    if(!hasStamp){emit(x0,y0,now);lastStampX=x0;lastStampY=y0;hasStamp=true;}
+    let dx=x1-lastStampX,dy=y1-lastStampY,dist=Math.hypot(dx,dy),count=0;
+    while(dist>=step && count++<300){
+      lastStampX+=dx/dist*step;lastStampY+=dy/dist*step;
+      emit(lastStampX,lastStampY,now);
+      dx=x1-lastStampX;dy=y1-lastStampY;dist=Math.hypot(dx,dy);
+    }
+  }
+  const motion=window.matchMedia('(prefers-reduced-motion: reduce)');
+  let visible=true;
+  function frame(now){
+    if(!visible || motion.matches || document.hidden){previous=0;requestAnimationFrame(frame);return;}
+    const dt=previous?Math.min(100,(now-previous))/1000:1/60;previous=now;
+    if(active){
+      const px=sx,py=sy;
+      const k=1-Math.pow(1-.17,dt*60);
+      sx+=(tx-sx)*k;sy+=(ty-sy)*k;
+      trail(px,py,sx,sy,now);
+    }else{
+      // A small living preview over the empty left wall, even before first hover.
+      sx=w*(.205+.012*Math.sin(now*.00047));
+      sy=h*(.35+.017*Math.sin(now*.00037));
+    }
+    mc.clearRect(0,0,w,h);
+    mc.fillStyle='#fff';
+    mc.beginPath();
+    for(let i=stamps.length-1;i>=0;i--){
+      const age=now-stamps[i].born;
+      if(age>=life){stamps.splice(i,1);continue;}
+      const shrink=Math.pow(Math.max(0,1-age/life),.85);
+      blob(mc,stamps[i].x,stamps[i].y,radius*shrink,stamps[i].phase+now*.0003);
+    }
+    if(!active)blob(mc,sx,sy,radius*.57,now*.0007);
+    mc.fill();
+    ctx.clearRect(0,0,w,h);
+    if(clean.complete && clean.naturalWidth){
+      ctx.globalCompositeOperation='source-over';cover(ctx,clean);
+      ctx.globalCompositeOperation='destination-out';ctx.drawImage(mask,0,0);
+      ctx.globalCompositeOperation='source-over';
+    }
+    requestAnimationFrame(frame);
+  }
+  function position(e){const b=hero.getBoundingClientRect();return [e.clientX-b.left,e.clientY-b.top];}
+  hero.addEventListener('pointerdown',e=>{[tx,ty]=position(e);sx=tx;sy=ty;hasStamp=false;active=true;});
+  hero.addEventListener('pointerup',e=>{if(e.pointerType==='touch')active=false;});
+  hero.addEventListener('pointerenter',e=>{
+    [tx,ty]=position(e);sx=tx;sy=ty;lastStampX=sx;lastStampY=sy;hasStamp=false;active=true;
+  });
+  hero.addEventListener('pointermove',e=>{if(active)[tx,ty]=position(e);});
+  hero.addEventListener('pointerleave',()=>{active=false;hasStamp=false;});
+  window.addEventListener('resize',resize,{passive:true});
+  if('IntersectionObserver' in window)new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;},{threshold:0}).observe(hero);
+  motion.addEventListener('change',()=>{top.style.display=motion.matches?'none':'';});
+  top.style.display=motion.matches?'none':'';
+  resize();requestAnimationFrame(frame);
+})();
 </script></body></html>
