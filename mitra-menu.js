@@ -20,10 +20,22 @@
     setMobile(button.getAttribute('aria-expanded') !== 'true');
   });
   groups.forEach(function (group) {
-    group.querySelector('summary').addEventListener('click', function () {
+    var mouseHover = false;
+    group.addEventListener('pointerenter', function (event) {
+      if (!desktop.matches || event.pointerType !== 'mouse') return;
+      mouseHover = true;
       closeGroups(group);
+      group.open = true;
+    });
+    group.querySelector('summary').addEventListener('click', function (event) {
+      closeGroups(group);
+      if (desktop.matches && mouseHover && event.detail > 0) {
+        event.preventDefault();
+        group.open = true;
+      }
     });
     group.addEventListener('pointerleave', function (event) {
+      mouseHover = false;
       if (desktop.matches && event.pointerType === 'mouse') group.open = false;
     });
   });
