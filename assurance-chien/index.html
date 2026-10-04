@@ -306,6 +306,8 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px}
 .nav>a,.nav>.nav-pending,.nav-group>summary{font-size:.81rem;font-weight:800;color:var(--blue-deep);white-space:nowrap;text-decoration:none}
 .nav-group{position:relative}
+.nav-group:not([open])>.nav-panel{display:none}
+.nav-group[open]>.nav-panel{display:block}
 .nav-group>summary{cursor:pointer;list-style:none;padding:14px 0;position:static}
 .nav-group>summary::-webkit-details-marker{display:none}
 .nav-group>summary::after,.nav-group[open]>summary::after{content:'⌄';position:static;display:inline;width:auto;height:auto;margin-left:5px;border-radius:0;background:none;color:var(--red);font-size:1rem;transform:none}
@@ -442,12 +444,11 @@ input:focus,select:focus{border-color:var(--blue);outline:none;box-shadow:0 0 0 
 
 <script>
 (function(){
-  var menuButton=document.querySelector('.menu-toggle');
-  menuButton.addEventListener('click',function(){var open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));menuButton.setAttribute('aria-label',open?'Fermer le menu':'Ouvrir le menu');document.querySelector('.site-menu').classList.toggle('is-open',open);});
   var s1=document.getElementById('s1'),s2=document.getElementById('s2'),bar=document.getElementById('bar');
   document.getElementById('next').addEventListener('click',function(){var profil=document.getElementById('profil'),montant=document.getElementById('montant');if(!profil.value){profil.reportValidity();return;}if(!montant.value){montant.reportValidity();return;}s1.classList.remove('active');s2.classList.add('active');bar.style.width='100%';document.getElementById('prenom').focus();});
   document.getElementById('prev').addEventListener('click',function(){s2.classList.remove('active');s1.classList.add('active');bar.style.width='50%';});
   document.getElementById('devis-form').addEventListener('submit',function(e){e.preventDefault();if(!this.checkValidity()){this.reportValidity();return;}alert('Ceci est un aperçu. Le formulaire sera activé lors de la mise en ligne définitive.');});
 })();
 </script>
+<script src="../mitra-menu.js"></script>
 </body></html>
