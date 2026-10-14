@@ -12,3 +12,41 @@
 .editorial-related a:focus-visible{outline:2px solid var(--blue-deep);outline-offset:4px}
 @media(max-width:980px){.editorial-case-grid{grid-template-columns:1fr}.editorial-preparation{grid-template-columns:1fr;gap:28px}}
 @media(max-width:600px){.editorial-case-grid{gap:16px}.editorial-case,.editorial-related{padding:22px}.editorial-case h3{font-size:1.1rem}}
+
+/* Keep section containers centered when they are also grids. */
+.editorial .wrap.grid{margin:28px auto}
+.editorial .grid>*,.editorial-preparation>*,.hero-grid>*,.home-about>*{min-width:0}
+.editorial h2,.editorial h3,.editorial p,.editorial a{overflow-wrap:break-word}
+
+/* Comparison table on the individual health page. */
+.editorial .table-wrap{max-width:100%;overflow-x:auto;border:1px solid var(--line);border-radius:18px;background:#fff;margin:28px 0}
+.editorial .table-wrap table{width:100%;border-collapse:collapse;text-align:left}
+.editorial .table-wrap th,.editorial .table-wrap td{padding:18px;vertical-align:top;border-bottom:1px solid var(--line);line-height:1.65}
+.editorial .table-wrap th{background:var(--blue-deep);color:#fff;font-size:.92rem}
+.editorial .table-wrap tbody tr:nth-child(even){background:#f5f8fb}
+.editorial .table-wrap tbody tr:last-child td{border-bottom:0}
+.editorial .number{display:grid;place-items:center;width:38px;height:38px;background:var(--sky);color:var(--blue);border-radius:12px;font-weight:800;margin-bottom:18px}
+
+/* Text-only steps must not inherit the decorative timeline. */
+.editorial .steps{counter-reset:request-step}
+.editorial .steps::before{display:none}
+.editorial .steps .step{counter-increment:request-step;text-align:left;background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px}
+.editorial .steps .step::before{content:counter(request-step,decimal-leading-zero);display:grid;place-items:center;width:42px;height:42px;border-radius:14px;background:var(--sky);color:var(--blue);font-weight:800;margin-bottom:20px}
+.editorial .steps .step p{margin-bottom:0}
+
+/* Homepage copy and contact action. */
+.home-project .hero-grid{align-items:start}
+.home-note-icon{flex:none}
+.home-note-contact{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:10px 16px;border-radius:12px;background:#fff;border:1px solid var(--line);line-height:1.4}
+.editorial .home-last{max-width:780px}
+.home-last p{margin-inline:auto}
+.home-introduction h1{scroll-margin-top:170px}
+
+@media(max-width:760px){
+ .editorial .wrap.grid{margin:20px auto}
+ .editorial .steps{grid-template-columns:1fr}
+ .editorial .table-wrap th,.editorial .table-wrap td{min-width:170px;padding:14px}
+ .editorial .wrap{width:92%;padding-inline:12px}
+ .home-project .hero-grid{gap:32px}
+ .home-introduction h1{scroll-margin-top:110px}
+}
